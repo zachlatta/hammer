@@ -5,6 +5,8 @@ import (
 	"io"
 	"os"
 	"pkg/text/template"
+
+	"github.com/zachlatta/hammer/github"
 )
 
 func main() {
@@ -13,6 +15,13 @@ func main() {
 
 	args := flag.Args()
 	if len(args) < 1 {
+		usage()
+	}
+
+	switch args[0] {
+	case "github":
+		github.Run()
+	default:
 		usage()
 	}
 }
