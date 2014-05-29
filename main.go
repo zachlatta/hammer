@@ -20,7 +20,8 @@ func main() {
 
 	switch args[0] {
 	case "github":
-		github.Run()
+		g := github.GitHub{ConcurrencyLevel: 64}
+		g.Run()
 	default:
 		usage()
 	}
